@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICC Fix Reports - Cricket Predictions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #ff9900;
+        }
+        
+        .logo-container {
+            margin-bottom: 20px;
+        }
+        
+        .circle-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.7);
+            animation: pulse 2s infinite;
+            overflow: hidden;
+        }
+        
+        .circle-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #ff9900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subscribers {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+        
+        .timer-container {
+            /* background: rgba(0, 0, 0, 0.7); */
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px 0;
+            /* border: 2px solid #ff9900; */
+        }
+        
+        .timer-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ff9900;
+        }
+        
+        #timer {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #ff5500;
+        }
+        
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            /* background: linear-gradient(145deg, #1a1a1a, #333); */
+            padding: 0px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 200px;
+            /* border: 1px solid #ff9900;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+        }
+        
+        .stat-title {
+            font-size: 1.2rem;
+            color: #ff9900;
+            margin-bottom: 10px;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, #ff9900, #ff5500);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards 0.5s;
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.6);
+            background: linear-gradient(to right, #ff5500, #ff9900);
+        }
+        
+        .social-proof {
+            margin-top: 20px;
+            font-style: italic;
+            color: #ddd;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 153, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 153, 0, 0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .circle-logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .stat-box {
+                min-width: 100%;
+            }
+            
+            #timer {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .circle-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .timer-title {
+                font-size: 1.2rem;
+            }
+            
+            #timer {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="circle-logo">
+                <img src="logo.jpg" alt="ICC Logo">
+            </div>
+        </div>
+        
+        <h1>ICC FIX REPORTS</h1>
+        <div class="subscribers">37,689 subscribers</div>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-title">Cricket King of IPL~2025</div>
+                <div class="stat-value">87% Win Rate</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-title">TNPL King of ~2025</div>
+                <div class="stat-value">92% Win Rate</div>
+            </div>
+        </div>
+        
+        <a href="https://t.me/+m7wOXPhwhJ43ZmQ1" class="cta-button">JOIN [ICC FIX REPORTS] NOW</a>
+        
+        <div class="timer-container">
+            <div class="timer-title">NEXT PREDICTION IN:</div>
+            <div id="timer">01:00</div>
+        </div>
+
+    </div>
+
+    <script>
+        // Timer functionality
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const timerInterval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                
+                display.textContent = minutes + ":" + seconds;
+                
+                if (--timer < 0) {
+                    clearInterval(timerInterval);
+                    display.textContent = "00:00";
+                    // Here you can add what happens when timer reaches zero
+                    setTimeout(() => {
+                        // alert('New prediction is available! Refresh the page to see it.');
+                        startTimer(60, display); // Restart timer
+                    }, 1000);
+                }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+            const sixtySeconds = 60;
+            const display = document.querySelector('#timer');
+            startTimer(sixtySeconds, display);
+        };
+        
+        // Button animation
+        const ctaButton = document.querySelector('.cta-button');
+        
+        ctaButton.addEventListener('click', function() {
+            // Add click effect
+            ctaButton.style.transform = 'scale(0.95)';
+            ctaButton.style.opacity = '0.9';
+            
+            setTimeout(() => {
+                ctaButton.style.transform = '';
+                ctaButton.style.opacity = '1';
+                // alert('Redirecting to channel...');
+            }, 200);
+        });
+    </script>
+</body>
+</html>
